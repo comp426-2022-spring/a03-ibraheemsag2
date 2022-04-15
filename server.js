@@ -27,17 +27,22 @@ app.get('/app/', (req, res) => {
     });
 //normal flip
 app.get('/app/flip/', (req, res) => {
-    res.send(coinFlip())
+  res.status(200).json({"flip" : coinFlip()})
     });
+
 //Guess
-app.get('/app/flip/call/:guess', (req, res) => {
-    const val = flipACoin(req.params.guess)
-    res.json(val)
+app.get('/app/flip/call/tails', (req, res) => {
+    const val = flipACoin("tails")
+    res.status(200).json(val)
     });
+app.get('/app/flip/call/heads', (req, res) => {
+  const val = flipACoin("heads")
+  res.status(200).json(val)
+});
 //Return number flips
 app.get('/app/flips/:num', (req, res) => {
-    const flips = manyflips(req.params.number)
-    res.json(flips)
+    const flips = manyflips(req.params.num)
+    res.status(200).json({"raw": flips, "summary" : countFlips(flips)})
     });
 
 /** Coin flip functions 
