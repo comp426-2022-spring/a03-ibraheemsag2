@@ -39,7 +39,7 @@ app.get('/app/flip/call/heads', (req, res) => {
 });
 //Return number flips
 app.get('/app/flips/:num', (req, res) => {
-    const flips = manyflips(req.params.num)
+    const flips = coinFlips(req.params.num)
     res.status(200).json({"raw": flips, "summary" : countFlips(flips)})
     });
 
