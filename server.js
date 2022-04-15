@@ -11,9 +11,7 @@ const server = app.listen(port, () => {
 });
 
 // Default response for any other request
-app.use(function(req, res){
-    res.status(404).send('404 NOT FOUND')
-});
+
 //penis man
 
 //200 Status code
@@ -141,7 +139,9 @@ function flipACoin(call) {
     }
     return  { call: call, flip: coin, result: results}
   }
-  
+  app.use(function(req, res){
+    res.status(404).send('404 NOT FOUND')
+});
   
   /** Export 
    * 
