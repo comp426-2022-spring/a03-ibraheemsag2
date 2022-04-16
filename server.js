@@ -89,7 +89,7 @@ function coinFlip() {
 function coinFlips(flips) {
     let array = [];
     for(let i = 0; i < flips; i++){
-    array[i] = conFlip();
+    array[i] = coinFlip();
     }
     return array;
   }
